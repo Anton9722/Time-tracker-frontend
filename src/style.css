@@ -1,0 +1,84 @@
+body {
+    font-family: "Roboto Mono", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Ensure full viewport height */
+}
+
+.btn {
+    background-color: #A1FD65;
+}
+
+#loginform {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 500px;
+    border-radius: 5px;
+    border: 2px solid rgb(34, 34, 34);
+
+}
+
+#signupform {
+    background-color: rgb(19, 19, 19);
+}
+
+#logoLogin {
+    background-color: black;
+    padding-bottom: 50px;
+    margin-left: 70px;
+}
+
+#loginBtn{
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    height: 52px;
+    font-size: 27px;
+    text-align: center;
+    line-height: inherit; 
+    padding: 5px 20px; 
+
+}
+
+.loginInput {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-family: "Roboto Mono", sans-serif;
+
+    padding: 6px 12px;
+    background: rgb(38, 38, 43);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 20px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    :focus{
+        outline: none;
+        box-shadow: none;
+        border-color: rgb(100, 153, 255);
+    }
+}
+
+#paraUnderLoginForm {
+    margin-left: 60px;
+}
+
+#createAccountLink{
+    color: #A1FD65;
+    text-decoration: underline;
+}
+
+#createAccountLink:hover{
+    color: #7dc34e;
+    cursor: pointer;
+}
