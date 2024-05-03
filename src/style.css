@@ -12,7 +12,7 @@ body {
     background-color: #A1FD65;
 }
 
-#loginform {
+.loginAndSignupForm {
     background-color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@ body {
     background-color: rgb(19, 19, 19);
 }
 
-#logoLogin {
+.logoLoginAndSignup {
     background-color: black;
     padding-bottom: 50px;
     margin-left: 70px;
@@ -47,7 +47,19 @@ body {
 
 }
 
-.loginInput {
+#signupBtn {
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    height: 52px;
+    font-size: 27px;
+    text-align: center;
+    line-height: inherit; 
+    padding: 5px 20px; 
+}
+
+.loginAndSignUpInput {
     margin-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
@@ -69,16 +81,16 @@ body {
     }
 }
 
-#paraUnderLoginForm {
+.textUnderFormLoginAndSignup {
     margin-left: 60px;
 }
 
-#createAccountLink{
+.link{
     color: #A1FD65;
     text-decoration: underline;
 }
 
-#createAccountLink:hover{
+.link:hover{
     color: #7dc34e;
     cursor: pointer;
 }
