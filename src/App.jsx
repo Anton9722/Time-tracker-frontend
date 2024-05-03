@@ -34,6 +34,11 @@ function App() {
     setShowLoginOrSignupComponent(true);
   }
 
+  //test func
+  const test = () => {
+    console.log(accountId);
+  }
+
   return(
     <>
       {!isLoggedIn && showLoginOrSignupComponent && (
@@ -47,13 +52,13 @@ function App() {
         </>
       )}
     {isLoggedIn && 
-    <Router>
-      <Routes>
-        <Route exact path="/" Component={Timetracker}/>
-        <Route path="/statistics" Component={Statistics}/>
-        <Route path="/settings" Component={Settings}/>
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Timetracker skrivId={test} />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </Router>
     }
     
     </>

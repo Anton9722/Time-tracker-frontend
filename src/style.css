@@ -81,6 +81,25 @@ body {
     }
 }
 
+#taskCreatorInput {
+    font-family: "Roboto Mono", sans-serif;
+
+    padding: 6px 12px;
+    background: rgb(38, 38, 43);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 20px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    :focus{
+        outline: none;
+        box-shadow: none;
+        border-color: rgb(100, 153, 255);
+    }
+}
+
 .textUnderFormLoginAndSignup {
     margin-left: 60px;
 }
@@ -96,7 +115,7 @@ body {
 }
 
 #navbar{
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(42, 42, 42);
     position: fixed;
     top: 0;
     left: 0;
@@ -145,4 +164,61 @@ ul {
 #logoutLink:hover {
     color:#7dc34e;
     cursor: pointer;
+}
+
+#taskCreatorContainer {
+    background-color: rgb(42, 42, 42);
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    top: 20px;
+    left: 310px;
+    right: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+    
+}
+
+#taskSelector {
+    font-family: "Roboto Mono", sans-serif;
+    padding: 6px 12px;
+    background: rgb(38, 38, 43);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 20px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+}
+
+#taskSelectorContainer {
+    justify-content: center;
+    text-align: center;
+}
+
+#addNewTaskForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 30px;
+}
+
+h2 {
+    color: #A1FD65;
+}
+
+#addNewTaskBtn {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#startTaskBtn {
+    height: 60px;
+    width: 150px;
+    font-size: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 50px;
 }
