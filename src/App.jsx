@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import Timetracker from './components/Timetracker';
+import Statistics from './components/Statistics';
+import Settings from './components/Settings';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -20,20 +24,37 @@ function App() {
 
   //körs när användare loggat in med rätt lösen och username
   const handleLogin = (id) => {
-    alert("du loggade in! :D")
     setAccountId(id)
     setIsLoggedIn(true)
   }
 
   //körs när användare gjort en användate
   const handleSignup = () => {
-    alert("du har skapat en användare :D ")
+    alert("New account have been created")
+    setShowLoginOrSignupComponent(true);
   }
 
   return(
     <>
-    {showLoginOrSignupComponent ? <Login onLogin={handleLogin} goToSignup={changeBetweenLoginAndSignup}/> : <Signup onSignup={handleSignup} goToLogin={changeBetweenLoginAndSignup}/>}
-    {isLoggedIn && <h1>Välkommen!</h1>}
+      {!isLoggedIn && showLoginOrSignupComponent && (
+        <>
+          <Login onLogin={handleLogin} goToSignup={changeBetweenLoginAndSignup}/>
+        </>
+      )}
+      {!isLoggedIn && !showLoginOrSignupComponent && (
+        <>
+          <Signup onSignup={handleSignup} goToLogin={changeBetweenLoginAndSignup}/>
+        </>
+      )}
+    {isLoggedIn && 
+    <Router>
+      <Routes>
+        <Route exact path="/" Component={Timetracker}/>
+        <Route path="/statistics" Component={Statistics}/>
+        <Route path="/settings" Component={Settings}/>
+      </Routes>
+    </Router>
+    }
     
     </>
   )

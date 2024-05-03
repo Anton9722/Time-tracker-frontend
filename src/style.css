@@ -94,3 +94,55 @@ body {
     color: #7dc34e;
     cursor: pointer;
 }
+
+#navbar{
+    background-color: rgb(21, 21, 21);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 270px;
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.navbarLink{
+    color: #A1FD65;
+    font-size:x-large;
+}
+.navbarLink:hover {
+    color: #7dc34e;
+}
+
+.navbarLi {
+    margin-top: 10%;
+}
+
+#topNavbarLi {
+    margin-top: 40%;
+}
+
+#navbarLogo {
+    width: 230px;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 5%;
+}
+
+#navbarLiLogout {
+    position:absolute;
+    bottom: 0;
+    margin-bottom: 10%;
+}
+
+#logoutLink {
+    font-size: x-large;
+    color: #A1FD65
+}
+
+#logoutLink:hover {
+    color:#7dc34e;
+    cursor: pointer;
+}
