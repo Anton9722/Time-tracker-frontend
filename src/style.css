@@ -237,3 +237,52 @@ h2 {
     justify-content: center;
     text-align: center;
 }
+
+#topStatsBoxesContainer {
+    background-color: black;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    top: 100px;
+    left: 310px;
+    right: 40px;
+}
+
+.topStatsBoxes {
+    text-align: center;
+    background-color: rgb(42, 42, 42);
+    width: 350px;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+}
+
+#myChart {
+    background-color: rgb(42, 42, 42);
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+}
+
+#canvasContainer{
+    position: absolute;
+    top: 280px;
+    left: 310px;
+    width: 700px;
+}
+
+#detailedStatsContainer {
+    background-color: rgb(42, 42, 42);
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+    position: absolute;
+    top: 660px;
+    left: 310px;
+    right: 40px;
+}
+
+#statsTitle {
+    color:#A1FD65;
+    position: absolute;
+    top: -15px;
+    left: 310px;
+}

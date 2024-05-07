@@ -54,7 +54,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Timetracker accountId={accountId} logout={logout}/>} />
-          <Route path="/statistics" element={<Statistics logout={logout}/>} />
+          <Route path="/statistics" element={<Statistics accountId={accountId} logout={logout}/>} />
           <Route path="/settings" element={<Settings logout={logout}/>} />
         </Routes>
       </Router>

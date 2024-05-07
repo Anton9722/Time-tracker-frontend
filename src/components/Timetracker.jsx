@@ -65,27 +65,34 @@ function Timetracker ({accountId, logout}) {
             startTaskBtn.innerText = "START TIMER";
             setIsTimerRunning(false)
 
-            //sparar just nu "currentWeek", FIXA detta sen om du vill kunna välja vecka
+
             let currentDate = new Date();
             let currentYear = currentDate.getFullYear();
             let currentMonth = currentDate.getMonth() + 1;
             let currentDay = currentDate.getDate();
-            let dateToSave = currentYear + "/" + currentMonth + "/" + currentDay
+            let dateToday = currentYear + "/" + currentMonth + "/" + currentDay
 
-            let newTask = {
-                taskName: choosenTask,
-                taskTime: totalSeconds,
-                createdOnWeek: dateToSave
+            //api som hämtar info om om specefik dag, bland annat vecko nummer som jag behöver
+            fetch("http://sholiday.faboul.se/dagar/v2.1/" + dateToday)
+            .then(res => res.json())
+            .then(data => {
 
-            }
-
-            fetch("http://localhost:8080/task/create/" + accountId, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newTask)
+                let newTask = {
+                    taskName: choosenTask,
+                    taskTime: totalSeconds,
+                    createdOnWeek: data.dagar[0].vecka
+    
+                }
+    
+                fetch("http://localhost:8080/task/create/" + accountId, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newTask)
+                })
             })
+            setTotalSeconds(0)
 
         }
     }
