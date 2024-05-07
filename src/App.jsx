@@ -33,6 +33,10 @@ function App() {
     alert("New account have been created")
     setShowLoginOrSignupComponent(true);
   }
+  //logout funktion
+  const logout = () => {
+    setIsLoggedIn(false)
+  }
 
   return(
     <>
@@ -49,9 +53,9 @@ function App() {
     {isLoggedIn && 
       <Router>
         <Routes>
-          <Route exact path="/" element={<Timetracker accountId={accountId} />} />
-          <Route path="/statistics" element={<Statistics />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route exact path="/" element={<Timetracker accountId={accountId} logout={logout}/>} />
+          <Route path="/statistics" element={<Statistics logout={logout}/>} />
+          <Route path="/settings" element={<Settings logout={logout}/>} />
         </Routes>
       </Router>
     }

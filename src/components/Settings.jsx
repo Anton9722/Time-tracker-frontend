@@ -1,9 +1,9 @@
 import Navbar from "./Navbar"
 
-function Settings () {
+function Settings ({logout}) {
     return (
         <div>
-            <Navbar/>
+            <Navbar logout={logout}/>
             <h1>Settings Page</h1>
         </div>
     )

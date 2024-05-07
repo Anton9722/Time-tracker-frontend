@@ -223,5 +223,17 @@ h2 {
 }
 
 #timedTask {
+    color: #A1FD65;
+}
+
+#timedTaskContainer {
     background-color: rgb(42, 42, 42);
+    position: absolute;
+    top: 270px;
+    left: 310px;
+    right: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+    justify-content: center;
+    text-align: center;
 }
