@@ -19,7 +19,6 @@ function Statistics ({logout, accountId}) {
         let currentMonth = currentDate.getMonth() + 1;
         let currentDay = currentDate.getDate();
         let dateToday = currentYear + "/" + currentMonth + "/" + currentDay;
-
         fetch("http://sholiday.faboul.se/dagar/v2.1/" + dateToday)
             .then(res => res.json())
             .then(data => {
@@ -41,6 +40,7 @@ function Statistics ({logout, accountId}) {
                                 longestTaskName = task.taskName
                             }
                         })
+
                         setLongestSingleTask(longestTaskName + ": " + longestTaskTime + "s")
 
                         let onlyTaskname = tasksCurrentWeek.map(task => task.taskName);
@@ -117,7 +117,7 @@ function Statistics ({logout, accountId}) {
         return () => {
             myChart.destroy();
         };
-    }, []);
+    }, [taskAndTime]);
 
     return (
         <div>
