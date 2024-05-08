@@ -1,105 +1,124 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Chart from 'chart.js/auto';
+import Chart, { Tooltip } from 'chart.js/auto';
 import Navbar from "./Navbar";
 
 function Statistics ({logout, accountId}) {
-    //usestate som håller totala tider för varje task namn
     const [taskAndTime, setTaskAndTime] = useState([]);
+    const [totalSeconds, setTotalSeconds] = useState("");
+    const [longestSingleTask, setLongestSingleTask] = useState("");
+    const [mostPopularTask, setMostPopularTask] = useState("");
+    const [allTasksThisWeek, setAllTasksThisWeek] = useState([]);
 
-    let currentDate = new Date();
-    let currentYear = currentDate.getFullYear();
-    let currentMonth = currentDate.getMonth() + 1;
-    let currentDay = currentDate.getDate();
-    let dateToday = currentYear + "/" + currentMonth + "/" + currentDay
-    fetch("http://sholiday.faboul.se/dagar/v2.1/" + dateToday)
-    .then(res => res.json())
-    .then(data => {
+    useEffect(() => {
+        fetchData();
+    }, []); 
 
-        let currentWeek = data.dagar[0].vecka
+    const fetchData = () => {
+        let currentDate = new Date();
+        let currentYear = currentDate.getFullYear();
+        let currentMonth = currentDate.getMonth() + 1;
+        let currentDay = currentDate.getDate();
+        let dateToday = currentYear + "/" + currentMonth + "/" + currentDay;
 
-        fetch("http://localhost:8080/account/getalltasks/" + accountId)
-        .then(res => res.json())
-        .then(data => {
-            
-            let allTasks = data
-            let tasksCurrentWeek = []
+        fetch("http://sholiday.faboul.se/dagar/v2.1/" + dateToday)
+            .then(res => res.json())
+            .then(data => {
+                let currentWeek = data.dagar[0].vecka;
 
-            {allTasks.map(task => {
-                if (task.createdOnWeek === currentWeek) {
-                    tasksCurrentWeek.push(task)
-                }
-            })}
+                fetch("http://localhost:8080/account/getalltasks/" + accountId)
+                    .then(res => res.json())
+                    .then(data => {
+                        let allTasks = data;
+                        let tasksCurrentWeek = allTasks.filter(task => task.createdOnWeek === currentWeek);
 
-            let onlyTaskname = []
-            tasksCurrentWeek.forEach(task => {
-                onlyTaskname.push(task.taskName)
-            })
-            //en Set gör om en array till en Set fast den håller bara unika värden från den arrayn så en [1,1,2,4,4] blir en {1,2,4}
-            let uniqueTasksSet = new Set(onlyTaskname);
-            let uniqueTasksArray = [...uniqueTasksSet]
+                        setAllTasksThisWeek(tasksCurrentWeek)
 
+                        let longestTaskTime = 0
+                        let longestTaskName = ""
+                        tasksCurrentWeek.forEach(task => {
+                            if(task.taskTime > longestTaskTime) {
+                                longestTaskTime = task.taskTime
+                                longestTaskName = task.taskName
+                            }
+                        })
+                        setLongestSingleTask(longestTaskName + ": " + longestTaskTime + "s")
 
-            let taskAndTimesArrayToUse = []
-            let totalSeconds
-            uniqueTasksArray.forEach(taskName => {
+                        let onlyTaskname = tasksCurrentWeek.map(task => task.taskName);
+                        let uniqueTasksSet = new Set(onlyTaskname);
+                        let uniqueTasksArray = [...uniqueTasksSet];
 
-                totalSeconds = 0
+                        let taskAndTimesArrayToUse = [];
+                        uniqueTasksArray.forEach(taskName => {
+                            let totalSeconds = 0;
+                            tasksCurrentWeek.forEach(task => {
+                                if(task.taskName === taskName) {
+                                    totalSeconds += task.taskTime;
+                                }
+                            });
+                            let toAdd = {
+                                task: taskName,
+                                totalSeconds: totalSeconds
+                            };
+                            taskAndTimesArrayToUse.push(toAdd);
+                        });
+                        setTaskAndTime(taskAndTimesArrayToUse);
+                        let allTaskTotalTime = 0;
+                        taskAndTimesArrayToUse.forEach(task => {
+                            allTaskTotalTime += task.totalSeconds
+                        })
+                        setTotalSeconds(allTaskTotalTime)
 
-                tasksCurrentWeek.forEach(task => {
+                        let mostPopularTaskToSave = ""
+                        let valueHolder = 0
+                        taskAndTimesArrayToUse.forEach(task => {
+                            if(task.totalSeconds > valueHolder) {
+                                valueHolder = task.totalSeconds
+                                mostPopularTaskToSave = task.task
+                            }
+                        })
+                        setMostPopularTask(mostPopularTaskToSave)
+                    });
+            });
+    };
 
-                    if(task.taskName === taskName) {
-                        totalSeconds += task.taskTime
-                    }
-
-                })
-
-                let toAdd = {
-                    task: taskName,
-                    totalSeconds: totalSeconds
-                }
-                taskAndTimesArrayToUse.push(toAdd)
-            })
-            console.log(taskAndTimesArrayToUse);
-        })
-
-    })
-
-    //ritar upp vår bar chart
     const chartRef = useRef(null);
-    let myChart = null;
+
     useEffect(() => {
         const ctx = chartRef.current.getContext('2d');
-
-        if (myChart) {
-            myChart.destroy();
-        }
-
-        myChart = new Chart(ctx, {
+        let myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Städa', 'Plugga', 'Springa', 'Läsa'],
+                labels: taskAndTime.map(item => item.task), 
                 datasets: [{
                     label: '# of Seconds',
-                    data: [12, 5, 7, 9],
-                    borderWidth: 1
+                    data: taskAndTime.map(item => item.totalSeconds), 
+                    borderWidth: 1,
+                    backgroundColor: "rgba(161, 253, 101, 0.5)",
+                    borderColor: "rgba(161, 253, 101)",
+                    
                 }]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            color: "white"
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: "white"
+                        }
                     }
                 }
             }
         });
-
         return () => {
-            if (myChart) {
-                myChart.destroy();
-            }
+            myChart.destroy();
         };
-    }, []); 
-    
+    }, []);
+
     return (
         <div>
             <Navbar logout={logout}/>
@@ -108,13 +127,16 @@ function Statistics ({logout, accountId}) {
 
             <div id="topStatsBoxesContainer">
                 <div class="topStatsBoxes">
-                    <h2>Most Popular Task</h2>
+                    <h2>Most Popular Task:</h2>
+                    <h2>{mostPopularTask}</h2>
                 </div>
                 <div class="topStatsBoxes">
-                    <h2>Total Time</h2>
+                    <h2>Total Time All Tasks:</h2>
+                    <h2>{totalSeconds}s</h2>
                 </div>
                 <div class="topStatsBoxes">
-                    <h2>Longest Single Task</h2>
+                    <h2>Longest Single Task:</h2>
+                    <h2>{longestSingleTask}</h2>
                 </div>
             </div>
 
@@ -123,9 +145,16 @@ function Statistics ({logout, accountId}) {
             </div>
 
             <div id="detailedStatsContainer">
-                <h2>Place holder element</h2>
+                <h2>Task history (this week)</h2>
+                <ul>
+                    {allTasksThisWeek.map(task => (
+                        <li>
+                            <h3>{task.taskName} {task.taskTime}s</h3>
+                            <hr></hr>
+                        </li>
+                    ))}
+                </ul>
             </div>
-
         </div>
     );
 }

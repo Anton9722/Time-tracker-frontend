@@ -4,7 +4,7 @@ function Settings ({logout}) {
     return (
         <div>
             <Navbar logout={logout}/>
-            <h1>Settings Page</h1>
+            <h2>Settings will be included in a future update</h2>
         </div>
     )
 }
