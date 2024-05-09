@@ -42,6 +42,12 @@ function App() {
     setIsLoggedIn(false)
   }
 
+  //ändra färg tema
+  const changeTheme = (theme) => {
+    let cssStylesheetLink = document.getElementById("themeStylesheet")
+    cssStylesheetLink.href = "src/" + theme
+  }
+
   return(
     <>
       {!isLoggedIn && showLoginOrSignupComponent && (
@@ -59,7 +65,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Timetracker isAdmin={isAdmin} accountId={accountId} logout={logout}/>} />
           <Route path="/statistics" element={<Statistics isAdmin={isAdmin} accountId={accountId} logout={logout}/>} />
-          <Route path="/settings" element={<Settings isAdmin={isAdmin} logout={logout}/>} />
+          <Route path="/settings" element={<Settings changeTheme={changeTheme} isAdmin={isAdmin} logout={logout}/>} />
           <Route path="/admin" element={<AdminDashboard isAdmin={isAdmin} logout={logout}/>} />
         </Routes>
       </Router>
