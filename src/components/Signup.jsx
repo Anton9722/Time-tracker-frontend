@@ -25,7 +25,7 @@ function Signup({onSignup, goToLogin}) {
             isAdmin: false
         }
 
-        fetch("http://localhost:8080/account/create", {
+        fetch("https://timetracker-app-9og5n.ondigitalocean.app/account/create", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

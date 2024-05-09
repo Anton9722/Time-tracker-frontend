@@ -24,7 +24,7 @@ function Statistics ({logout, accountId, isAdmin}) {
             .then(data => {
                 let currentWeek = data.dagar[0].vecka;
 
-                fetch("http://localhost:8080/account/getalltasks/" + accountId)
+                fetch("https://timetracker-app-9og5n.ondigitalocean.app/account/getalltasks/" + accountId)
                     .then(res => res.json())
                     .then(data => {
                         let allTasks = data;

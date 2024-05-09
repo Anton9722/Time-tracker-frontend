@@ -9,7 +9,7 @@ function AdminDashboard({logout, isAdmin}) {
 
     useEffect(() => {
         if(isAdmin) {
-            fetch("http://localhost:8080/account/getallaccounts")
+            fetch("https://timetracker-app-9og5n.ondigitalocean.app/account/getallaccounts")
             .then(res => res.json())
             .then(data => {
                 let statsToSave = []
@@ -33,7 +33,7 @@ function AdminDashboard({logout, isAdmin}) {
 
     const moreInfo = (index, username) => {
         setClickedAccountIndex(index)
-        fetch("http://localhost:8080/account/getByUsername/" + username)
+        fetch("https://timetracker-app-9og5n.ondigitalocean.app/account/getByUsername/" + username)
         .then(res => res.json())
         .then(data => {
             setClickedAccountInfo(data)

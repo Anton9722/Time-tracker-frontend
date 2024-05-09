@@ -13,7 +13,7 @@ function Timetracker ({accountId, logout, isAdmin}) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch("http://localhost:8080/account/addtask/" + taskName + "/" + accountId, {
+        fetch("https://timetracker-app-9og5n.ondigitalocean.app/account/addtask/" + taskName + "/" + accountId, {
             method: 'POST',
         }).then(() => {
             fetchSavedTaskNames()
@@ -34,7 +34,7 @@ function Timetracker ({accountId, logout, isAdmin}) {
     
     //hämtar alla sparade task names för kontot
     const fetchSavedTaskNames = () => {
-        fetch("http://localhost:8080/account/get/" + accountId)
+        fetch("https://timetracker-app-9og5n.ondigitalocean.app/account/get/" + accountId)
         .then(res => res.json())
         .then(data => {
             //hämtar listan och med taske names och sparar den i vårt state "options"
@@ -84,7 +84,7 @@ function Timetracker ({accountId, logout, isAdmin}) {
     
                 }
     
-                fetch("http://localhost:8080/task/create/" + accountId, {
+                fetch("https://timetracker-app-9og5n.ondigitalocean.app/task/create/" + accountId, {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json',

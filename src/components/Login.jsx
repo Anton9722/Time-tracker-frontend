@@ -17,11 +17,11 @@ function Login({onLogin, goToSignup}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         
-        fetch("http://localhost:8080/account/login/" + username + "/" + password)
+        fetch("https://timetracker-app-9og5n.ondigitalocean.app/account/login/" + username + "/" + password)
         .then(res => res.json())
         .then(data => {
             if (data === true) {
-                fetch("http://localhost:8080/account/getByUsername/" + username)
+                fetch("https://timetracker-app-9og5n.ondigitalocean.app/account/getByUsername/" + username)
                 .then(res => res.json())
                 .then(data => {
                     onLogin(data.id, data.isAdmin)
