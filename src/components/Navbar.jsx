@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Navbar ({logout}) {
+function Navbar ({logout, isAdmin}) {
 
     return(
         <div id="navbar">
@@ -15,6 +15,11 @@ function Navbar ({logout}) {
                 <li class="navbarLi">
                     <Link to="/settings" class="navbarLink">SETTINGS</Link>
                 </li>
+                {isAdmin && 
+                <li class="navbarLi">
+                    <Link to="/admin" class="navbarLink">ADMIN DASHBOARD</Link>
+                </li>
+                }
                 <li id="navbarLiLogout">
                     <a id="logoutLink" onClick={logout}>LOGOUT</a>
                 </li>

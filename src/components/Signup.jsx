@@ -21,7 +21,8 @@ function Signup({onSignup, goToLogin}) {
 
         let newAccount = {
             username: username,
-            password: password
+            password: password,
+            isAdmin: false
         }
 
         fetch("http://localhost:8080/account/create", {
@@ -31,8 +32,13 @@ function Signup({onSignup, goToLogin}) {
             },
             body: JSON.stringify(newAccount)
         })
-        //när du fixat krav på att skapa användare är det här du ska lägga till mer sen -then.then(data) och titta om användare blivit skapad, för just nu har du gjot så att det inte finns några krav och 2 pers kan ha samma username och heta "{{]}]{}[]}" om dem vill
-        onSignup()
+        .then(res => {
+            if(res.ok){
+                onSignup()
+            } else {
+                alert("Username already taken")
+            }
+        })
     }
 
     //för att byta till login sidan

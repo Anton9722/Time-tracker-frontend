@@ -4,6 +4,7 @@ import Signup from './components/Signup'
 import Timetracker from './components/Timetracker';
 import Statistics from './components/Statistics';
 import Settings from './components/Settings';
+import AdminDashboard from './components/AdminDashboard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
   //när användare loggat in sparar vi deras id här då det kommer behövas för olika fetches framöver
   const [accountId, setAccountId] = useState("");
 
+  const [isAdmin, setIsAdmin] = useState(false);
+
   //anväder som en switch emellan login och signup komponenter
   const [showLoginOrSignupComponent, setShowLoginOrSignupComponent] = useState(true);
 
@@ -23,9 +26,10 @@ function App() {
   }
 
   //körs när användare loggat in med rätt lösen och username
-  const handleLogin = (id) => {
+  const handleLogin = (id, isUserAdmin) => {
     setAccountId(id)
     setIsLoggedIn(true)
+    setIsAdmin(isUserAdmin)
   }
 
   //körs när användare gjort en användate
@@ -53,9 +57,10 @@ function App() {
     {isLoggedIn && 
       <Router>
         <Routes>
-          <Route exact path="/" element={<Timetracker accountId={accountId} logout={logout}/>} />
-          <Route path="/statistics" element={<Statistics accountId={accountId} logout={logout}/>} />
-          <Route path="/settings" element={<Settings logout={logout}/>} />
+          <Route exact path="/" element={<Timetracker isAdmin={isAdmin} accountId={accountId} logout={logout}/>} />
+          <Route path="/statistics" element={<Statistics isAdmin={isAdmin} accountId={accountId} logout={logout}/>} />
+          <Route path="/settings" element={<Settings isAdmin={isAdmin} logout={logout}/>} />
+          <Route path="/admin" element={<AdminDashboard isAdmin={isAdmin} logout={logout}/>} />
         </Routes>
       </Router>
     }

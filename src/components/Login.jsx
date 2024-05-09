@@ -24,7 +24,7 @@ function Login({onLogin, goToSignup}) {
                 fetch("http://localhost:8080/account/getByUsername/" + username)
                 .then(res => res.json())
                 .then(data => {
-                    onLogin(data.id)
+                    onLogin(data.id, data.isAdmin)
                 })
             } else {
                 alert("Wrong username or password")

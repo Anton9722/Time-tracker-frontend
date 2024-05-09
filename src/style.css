@@ -286,3 +286,67 @@ h2 {
     top: -15px;
     left: 310px;
 }
+
+#adminUserStatsContainer {
+    background-color: rgb(42, 42, 42);
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+    position: absolute;
+    top: 20px;
+    left: 310px;
+    right: 40px;
+}
+
+.accountInfo {
+    display: inline-block;
+    color: #A1FD65;
+    margin: 0;
+}
+
+.accountInfoWhite {
+    display: inline-block;
+    color: white;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.btnAccountStats {
+    text-decoration: underline;
+}
+.btnAccountStats:hover {
+    cursor: pointer;
+}
+
+.moreInfoContainer {
+    position: relative;
+    margin-top: 5px;
+    background-color: black;
+    margin-right: 40%;
+    border: solid 1px gray;
+    border-radius: 4px;
+}
+
+.moreInfoTitels {
+    margin: 0;
+    margin-top: 20px;
+}
+
+.moreInfoInformation{
+    padding-left: 0;
+    margin: 0;
+    font-size: small;
+}
+
+#closeMoreInfo {
+    color: red;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    font-size: xx-large;
+}
+
+#closeMoreInfo:hover {
+    cursor: pointer;
+    color: rgb(193, 0, 0);
+}

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Navbar from "./Navbar"
-function Timetracker ({accountId, logout}) {
+function Timetracker ({accountId, logout, isAdmin}) {
 
     const [taskName, setTaskName] = useState("");
     const [options, setOptions] = useState([]);
@@ -114,7 +114,7 @@ function Timetracker ({accountId, logout}) {
 
     return (
         <>
-        <Navbar logout={logout}/>
+        <Navbar logout={logout} isAdmin={isAdmin}/>
         <div id="taskCreatorContainer">
 
             <form id="addNewTaskForm" onSubmit={handleSubmit}>
@@ -140,9 +140,6 @@ function Timetracker ({accountId, logout}) {
         <div id="timedTaskContainer">
             <h1 id="timedTask">{choosenTask} TIME: {totalSeconds}s</h1>
         </div>
-        <ul>
-            <li class="timedTaskHistory">LÄGG TILL TASK HISTORY I DENNA UL SEN</li>
-        </ul>
         </>
     )
 }

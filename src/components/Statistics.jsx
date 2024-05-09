@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Chart, { Tooltip } from 'chart.js/auto';
 import Navbar from "./Navbar";
 
-function Statistics ({logout, accountId}) {
+function Statistics ({logout, accountId, isAdmin}) {
     const [taskAndTime, setTaskAndTime] = useState([]);
     const [totalSeconds, setTotalSeconds] = useState("");
     const [longestSingleTask, setLongestSingleTask] = useState("");
@@ -121,7 +121,7 @@ function Statistics ({logout, accountId}) {
 
     return (
         <div>
-            <Navbar logout={logout}/>
+            <Navbar logout={logout} isAdmin={isAdmin}/>
 
             <h1 id="statsTitle">Statistics For Current Week</h1>
 
