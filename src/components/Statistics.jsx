@@ -19,7 +19,7 @@ function Statistics ({logout, accountId, isAdmin}) {
         let currentMonth = currentDate.getMonth() + 1;
         let currentDay = currentDate.getDate();
         let dateToday = currentYear + "/" + currentMonth + "/" + currentDay;
-        fetch("http://sholiday.faboul.se/dagar/v2.1/" + dateToday)
+        fetch("https://sholiday.faboul.se/dagar/v2.1/" + dateToday)
             .then(res => res.json())
             .then(data => {
                 let currentWeek = data.dagar[0].vecka;

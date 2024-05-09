@@ -73,7 +73,7 @@ function Timetracker ({accountId, logout, isAdmin}) {
             let dateToday = currentYear + "/" + currentMonth + "/" + currentDay
 
             //api som hämtar info om om specefik dag, bland annat vecko nummer som jag behöver
-            fetch("http://sholiday.faboul.se/dagar/v2.1/" + dateToday)
+            fetch("https://sholiday.faboul.se/dagar/v2.1/" + dateToday)
             .then(res => res.json())
             .then(data => {
 
