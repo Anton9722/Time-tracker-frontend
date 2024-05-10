@@ -137,6 +137,19 @@ ul {
 
 .navbarLi {
     margin-top: 10%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#navbarUl {
+    padding-left: 10px;
+}
+
+.navbarImgs {
+    margin-right: 10px;
+    width: 27px;
+    height: 27px;
 }
 
 #topNavbarLi {

@@ -45,7 +45,7 @@ function App() {
   //ändra färg tema
   const changeTheme = (theme) => {
     let cssStylesheetLink = document.getElementById("themeStylesheet")
-    cssStylesheetLink.href = "src/" + theme
+    cssStylesheetLink.href = "/" + theme
   }
 
   return(

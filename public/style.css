@@ -9,7 +9,7 @@ body {
 }
 
 .btn {
-    background-color: #00ADB5;
+    background-color: #A1FD65;
 }
 
 .loginAndSignupForm {
@@ -105,7 +105,7 @@ body {
 }
 
 .link{
-    color: #00ADB5;
+    color: #A1FD65;
     text-decoration: underline;
 }
 
@@ -115,7 +115,7 @@ body {
 }
 
 #navbar{
-    background-color: #393E46;
+    background-color: rgb(42, 42, 42);
     position: fixed;
     top: 0;
     left: 0;
@@ -128,15 +128,28 @@ ul {
 }
 
 .navbarLink{
-    color: #00ADB5;
+    color: #A1FD65;
     font-size:x-large;
 }
 .navbarLink:hover {
-    color: #006368;
+    color: #7dc34e;
 }
 
 .navbarLi {
     margin-top: 10%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#navbarUl {
+    padding-left: 10px;
+}
+
+.navbarImgs {
+    margin-right: 10px;
+    width: 27px;
+    height: 27px;
 }
 
 #topNavbarLi {
@@ -158,16 +171,16 @@ ul {
 
 #logoutLink {
     font-size: x-large;
-    color: #00ADB5
+    color: #A1FD65
 }
 
 #logoutLink:hover {
-    color:#005b60;
+    color:#7dc34e;
     cursor: pointer;
 }
 
 #taskCreatorContainer {
-    background-color: #393E46;
+    background-color: rgb(42, 42, 42);
     display: flex;
     position: absolute;
     justify-content: space-between;
@@ -204,7 +217,7 @@ ul {
 }
 
 h2 {
-    color: #00ADB5;
+    color: #A1FD65;
 }
 
 #addNewTaskBtn {
@@ -223,11 +236,11 @@ h2 {
 }
 
 #timedTask {
-    color: #00ADB5;
+    color: #A1FD65;
 }
 
 #timedTaskContainer {
-    background-color: #393E46;
+    background-color: rgb(42, 42, 42);
     position: absolute;
     top: 270px;
     left: 310px;
@@ -250,7 +263,7 @@ h2 {
 
 .topStatsBoxes {
     text-align: center;
-    background-color: #393E46;
+    background-color: rgb(42, 42, 42);
     width: 350px;
     height: 150px;
     border-radius: 10px;
@@ -258,7 +271,7 @@ h2 {
 }
 
 #myChart {
-    background-color: #393E46;
+    background-color: rgb(42, 42, 42);
     border-radius: 10px;
     border: 1px solid rgb(65, 65, 65);
 }
@@ -271,7 +284,7 @@ h2 {
 }
 
 #detailedStatsContainer {
-    background-color: #393E46;
+    background-color: rgb(42, 42, 42);
     border-radius: 10px;
     border: 1px solid rgb(65, 65, 65);
     position: absolute;
@@ -281,14 +294,14 @@ h2 {
 }
 
 #statsTitle {
-    color:#00ADB5;
+    color:#A1FD65;
     position: absolute;
     top: -15px;
     left: 310px;
 }
 
 #adminUserStatsContainer {
-    background-color: #393E46;
+    background-color: rgb(42, 42, 42);
     border-radius: 10px;
     border: 1px solid rgb(65, 65, 65);
     position: absolute;
@@ -299,7 +312,7 @@ h2 {
 
 .accountInfo {
     display: inline-block;
-    color: #00ADB5;
+    color: #A1FD65;
     margin: 0;
 }
 
@@ -352,7 +365,7 @@ h2 {
 }
 
 #settingsContainer {
-    background-color: #393E46;
+    background-color: rgb(42, 42, 42);
     position: absolute;
     top: 20px;
     left: 310px;
@@ -366,7 +379,7 @@ h2 {
 }
 
 #settingsTitle {
-    color: #00ADB5;
+    color: #A1FD65;
 }
 
 #themeSelector {
@@ -382,7 +395,7 @@ h2 {
 }
 
 #changeThemeBtn {
-    background-color: #00ADB5;
+    background-color: #A1FD65;
     margin-left: 10px;
     margin: auto;
     margin-top: 20px;

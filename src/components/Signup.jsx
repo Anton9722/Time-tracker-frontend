@@ -48,7 +48,7 @@ function Signup({onSignup, goToLogin}) {
 
     return (
         <div>
-            <img src="src\assets\images\logo.png" class="logoLoginAndSignup"></img>
+            <img src="/logo.png" class="logoLoginAndSignup"></img>
         <form class="loginAndSignupForm" onSubmit={handleSubmit}>
             <h1>Sign Up</h1>
             <input required type="text" class="loginAndSignUpInput" placeholder="Username" value={username} onChange={handleUsernameChange}></input>

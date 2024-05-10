@@ -4,15 +4,18 @@ function Navbar ({logout, isAdmin}) {
 
     return(
         <div id="navbar">
-            <img src="src\assets\images\logo.png" id="navbarLogo"></img>
-            <ul>
+            <img src="/logo.png" id="navbarLogo"></img>
+            <ul id="navbarUl">
                 <li class="navbarLi" id="topNavbarLi">
+                    <img src="/timerimg.png" class="navbarImgs"></img>
                     <Link to="/" class="navbarLink">TIME TRACKER</Link>
                 </li>
                 <li class="navbarLi">
+                    <img src="/statsimg.png" class="navbarImgs"></img>
                     <Link to="/statistics" class="navbarLink">STATISTICS</Link>
                 </li>
                 <li class="navbarLi">
+                    <img src="/settingimg.png" class="navbarImgs"></img>
                     <Link to="/settings" class="navbarLink">SETTINGS</Link>
                 </li>
                 {isAdmin && 

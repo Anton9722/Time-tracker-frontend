@@ -1,0 +1,404 @@
+body {
+    font-family: "Roboto Mono", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+
+.btn {
+    background-color: #00ADB5;
+}
+
+.loginAndSignupForm {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 500px;
+    border-radius: 5px;
+    border: 2px solid rgb(34, 34, 34);
+
+}
+
+#signupform {
+    background-color: rgb(19, 19, 19);
+}
+
+.logoLoginAndSignup {
+    background-color: black;
+    padding-bottom: 50px;
+    margin-left: 70px;
+}
+
+#loginBtn{
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    height: 52px;
+    font-size: 27px;
+    text-align: center;
+    line-height: inherit; 
+    padding: 5px 20px; 
+
+}
+
+#signupBtn {
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    height: 52px;
+    font-size: 27px;
+    text-align: center;
+    line-height: inherit; 
+    padding: 5px 20px; 
+}
+
+.loginAndSignUpInput {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-family: "Roboto Mono", sans-serif;
+
+    padding: 6px 12px;
+    background: rgb(38, 38, 43);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 20px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    :focus{
+        outline: none;
+        box-shadow: none;
+        border-color: rgb(100, 153, 255);
+    }
+}
+
+#taskCreatorInput {
+    font-family: "Roboto Mono", sans-serif;
+
+    padding: 6px 12px;
+    background: rgb(38, 38, 43);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 20px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    :focus{
+        outline: none;
+        box-shadow: none;
+        border-color: rgb(100, 153, 255);
+    }
+}
+
+.textUnderFormLoginAndSignup {
+    margin-left: 60px;
+}
+
+.link{
+    color: #00ADB5;
+    text-decoration: underline;
+}
+
+.link:hover{
+    color: #7dc34e;
+    cursor: pointer;
+}
+
+#navbar{
+    background-color: #393E46;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 270px;
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.navbarLink{
+    color: #00ADB5;
+    font-size:x-large;
+}
+.navbarLink:hover {
+    color: #006368;
+}
+
+.navbarLi {
+    margin-top: 10%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#navbarUl {
+    padding-left: 10px;
+}
+
+.navbarImgs {
+    margin-right: 10px;
+    width: 27px;
+    height: 27px;
+    filter: hue-rotate(120deg);
+}
+
+#topNavbarLi {
+    margin-top: 40%;
+}
+
+#navbarLogo {
+    width: 230px;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 5%;
+}
+
+#navbarLiLogout {
+    position:absolute;
+    bottom: 0;
+    margin-bottom: 10%;
+}
+
+#logoutLink {
+    font-size: x-large;
+    color: #00ADB5
+}
+
+#logoutLink:hover {
+    color:#005b60;
+    cursor: pointer;
+}
+
+#taskCreatorContainer {
+    background-color: #393E46;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    top: 20px;
+    left: 310px;
+    right: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+    
+}
+
+#taskSelector {
+    font-family: "Roboto Mono", sans-serif;
+    padding: 6px 12px;
+    background: rgb(38, 38, 43);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 20px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+}
+
+#taskSelectorContainer {
+    justify-content: center;
+    text-align: center;
+}
+
+#addNewTaskForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 30px;
+}
+
+h2 {
+    color: #00ADB5;
+}
+
+#addNewTaskBtn {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#startTaskBtn {
+    height: 60px;
+    width: 150px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 50px;
+}
+
+#timedTask {
+    color: #00ADB5;
+}
+
+#timedTaskContainer {
+    background-color: #393E46;
+    position: absolute;
+    top: 270px;
+    left: 310px;
+    right: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+    justify-content: center;
+    text-align: center;
+}
+
+#topStatsBoxesContainer {
+    background-color: black;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    top: 100px;
+    left: 310px;
+    right: 40px;
+}
+
+.topStatsBoxes {
+    text-align: center;
+    background-color: #393E46;
+    width: 350px;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+}
+
+#myChart {
+    background-color: #393E46;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+}
+
+#canvasContainer{
+    position: absolute;
+    top: 280px;
+    left: 310px;
+    width: 700px;
+}
+
+#detailedStatsContainer {
+    background-color: #393E46;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+    position: absolute;
+    top: 660px;
+    left: 310px;
+    right: 40px;
+}
+
+#statsTitle {
+    color:#00ADB5;
+    position: absolute;
+    top: -15px;
+    left: 310px;
+}
+
+#adminUserStatsContainer {
+    background-color: #393E46;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+    position: absolute;
+    top: 20px;
+    left: 310px;
+    right: 40px;
+}
+
+.accountInfo {
+    display: inline-block;
+    color: #00ADB5;
+    margin: 0;
+}
+
+.accountInfoWhite {
+    display: inline-block;
+    color: white;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.btnAccountStats {
+    text-decoration: underline;
+}
+.btnAccountStats:hover {
+    cursor: pointer;
+}
+
+.moreInfoContainer {
+    position: relative;
+    margin-top: 5px;
+    background-color: black;
+    margin-right: 40%;
+    border: solid 1px gray;
+    border-radius: 4px;
+}
+
+.moreInfoTitels {
+    margin: 0;
+    margin-top: 20px;
+}
+
+.moreInfoInformation{
+    padding-left: 0;
+    margin: 0;
+    font-size: small;
+}
+
+#closeMoreInfo {
+    color: red;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    font-size: xx-large;
+}
+
+#closeMoreInfo:hover {
+    cursor: pointer;
+    color: rgb(193, 0, 0);
+}
+
+#settingsContainer {
+    background-color: #393E46;
+    position: absolute;
+    top: 20px;
+    left: 310px;
+    right: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(65, 65, 65);
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#settingsTitle {
+    color: #00ADB5;
+}
+
+#themeSelector {
+    font-family: "Roboto Mono", sans-serif;
+    padding: 6px 12px;
+    background: rgb(38, 38, 43);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 20px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+    margin: auto;
+}
+
+#changeThemeBtn {
+    background-color: #00ADB5;
+    margin-left: 10px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
